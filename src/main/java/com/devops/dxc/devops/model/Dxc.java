@@ -24,7 +24,7 @@ public class Dxc implements Serializable {
 	}
 
 	public String getBienvenida() {
-		return "Hello World";
+		return "Bienvenid@ a la calculador del 10%";
 	}
 
 	public int getDxc() {
@@ -65,5 +65,9 @@ public class Dxc implements Serializable {
 
 	public void setAhorro(int ahorro) {
 		this.ahorro = ahorro;
+	}
+
+	public int getMaximoRetiro() {
+		return Util.getUf()*150;
 	}
 }
