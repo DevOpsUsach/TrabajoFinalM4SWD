@@ -23,6 +23,31 @@ public class Util {
     }
 
     /**
+     * Método para cacular el 10% de Impuesto.
+     * 
+     * @param ahorro
+     * @param sueldo
+     * @return
+     */
+    public static int getImpuesto(int ahorro, int sueldo){
+	 int dxc=getDxc(ahorro,sueldo);
+         return (int) (dxc*0.1);
+    }
+
+    /**
+     * Método para cacular el Saldo.
+     * 
+     * @param ahorro
+     * @param sueldo
+     * @return
+     */
+    public static int getSaldo(int ahorro, int sueldo){
+	 int dxc=getDxc(ahorro,sueldo);
+	 int impuesto=getImpuesto(ahorro,sueldo);
+         return (int) (ahorro-dxc-impuesto);
+    }
+
+    /**
      * Método que retorna el valor de la UF.  Este método debe ser refactorizado por una integración a un servicio
      * que retorne la UF en tiempo real.  Por ejemplo mindicador.cl
      * @return
