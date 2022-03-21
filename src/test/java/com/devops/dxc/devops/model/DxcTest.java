@@ -73,7 +73,7 @@ public class DxcTest {
 
     @Test
     public void calculoSaldoDespuesDeMinimoRetiroDeberiaDevolverSaldoAhorradoMenosMontoMinimoRetiro() throws Exception {
-        Dxc dxc = new Dxc(50000000, 1200000);        
+        Dxc dxc = new Dxc(9999999, 1200000);        
         assertEquals(dxc.getAhorro() - 1000000, dxc.getSaldo());
     }
 

@@ -31,8 +31,8 @@ public class Util {
      * @return
      */
     public static int getImpuesto(int ahorro, int sueldo){
-	 int dxc=getDxc(ahorro,sueldo);
-         return (int) (dxc*0.1);
+        int dxc=getDxc(ahorro,sueldo);
+        return (int) (dxc*0.1);
     }
 
     /**
@@ -43,9 +43,8 @@ public class Util {
      * @return
      */
     public static int getSaldo(int ahorro, int sueldo){
-	 int dxc=getDxc(ahorro,sueldo);
-	 int impuesto=getImpuesto(ahorro,sueldo);
-         return (int) (ahorro-dxc-impuesto);
+        int dxc=getDxc(ahorro,sueldo);
+        return (int) (ahorro-dxc);
     }
 
     /**
