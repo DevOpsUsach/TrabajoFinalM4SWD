@@ -3,17 +3,17 @@ pipeline {
     stages {
         stage('Clean') {
             steps {
-                sh 'mvnw clean -e'
+                sh './mvnw clean -e'
             }
         }
         stage('Compile') {
             steps {
-                sh 'mvnw compile -e'
+                sh './mvnw compile -e'
             }
         }
         stage('Test Unitarios') {
             steps {
-                sh 'mvnw test -e'
+                sh './mvnw test -e'
             }
         }
         /*stage('Test with Selenium Webdriver') {
