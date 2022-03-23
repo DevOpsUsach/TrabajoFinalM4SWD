@@ -1,0 +1,651 @@
+{
+	"info": {
+		"_postman_id": "37c936c8-f2ac-4b50-bdbf-5d4707039baa",
+		"name": "TrabajoFinalM4SWD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CasoSaldoAhorradoSuperiorA150UF",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Diez x Ciento del saldo ahorrado superior a 150 UF deberá devolver el tope máximo de retiro\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.ahorro).to.eql(50000000);\r",
+							"  pm.expect(responseJson.dxc).to.eql(responseJson.maximoRetiro);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Codigo de estado 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tiempo de respuesta menor a 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rest/msdxc/dxc?ahorro=50000000&sueldo=1200000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"msdxc",
+						"dxc"
+					],
+					"query": [
+						{
+							"key": "ahorro",
+							"value": "50000000"
+						},
+						{
+							"key": "sueldo",
+							"value": "1200000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CasoSaldoAhorradoMayorIgual1Millon",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Diez x Ciento del saldo ahorrado es menor o igual a 1 millón y el saldo ahorrado es mayor o igual a 1 millón deberá devolver 1 millón\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.dxc).to.eql(1000000);  \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Codigo de estado 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tiempo de respuesta menor a 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rest/msdxc/dxc?ahorro=9999999&sueldo=1200000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"msdxc",
+						"dxc"
+					],
+					"query": [
+						{
+							"key": "ahorro",
+							"value": "9999999"
+						},
+						{
+							"key": "sueldo",
+							"value": "1200000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CasoSaldoAhorradoMenor1Millon",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Diez x Ciento con un saldo ahorrado inferior a 1 millón deberá devolver el saldo ahorrado\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.ahorro).to.eql(responseJson.dxc);  \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Codigo de estado 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tiempo de respuesta menor a 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rest/msdxc/dxc?ahorro=900000&sueldo=1200000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"msdxc",
+						"dxc"
+					],
+					"query": [
+						{
+							"key": "ahorro",
+							"value": "900000"
+						},
+						{
+							"key": "sueldo",
+							"value": "1200000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CasoBase",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Diez x Ciento caso base\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.ahorro).to.eql(25000000);\r",
+							"  pm.expect(responseJson.dxc).to.eql(2500000);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Codigo de estado 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tiempo de respuesta menor a 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rest/msdxc/dxc?ahorro=25000000&sueldo=1200000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"msdxc",
+						"dxc"
+					],
+					"query": [
+						{
+							"key": "ahorro",
+							"value": "25000000"
+						},
+						{
+							"key": "sueldo",
+							"value": "1200000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CasoSaldoDespuesDeRetiroCasoBase",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Saldo después de retiro caso base debería devolver saldo ahorrado menos valor del retiro\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.saldo).to.eql(responseJson.ahorro - responseJson.dxc);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Codigo de estado 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tiempo de respuesta menor a 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rest/msdxc/dxc?ahorro=25000000&sueldo=1200000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"msdxc",
+						"dxc"
+					],
+					"query": [
+						{
+							"key": "ahorro",
+							"value": "25000000"
+						},
+						{
+							"key": "sueldo",
+							"value": "1200000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CasoSaldoDespuesDeMaximoRetiro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Saldo después de máximo retiro debería devolver el saldo ahorrado menos el máximo de retiro\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.saldo).to.eql(responseJson.ahorro - responseJson.maximoRetiro );\r",
+							"  \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Codigo de estado 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tiempo de respuesta menor a 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rest/msdxc/dxc?ahorro=50000000&sueldo=1200000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"msdxc",
+						"dxc"
+					],
+					"query": [
+						{
+							"key": "ahorro",
+							"value": "50000000"
+						},
+						{
+							"key": "sueldo",
+							"value": "1200000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CasoSaldoDespuesDeMinimoRetiro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Saldo después de retiro mínimo debería devolver el saldo ahorrado menos monto mínimo de retiro\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.saldo).to.eql(responseJson.ahorro - 1000000);\r",
+							"  \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Codigo de estado 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tiempo de respuesta menor a 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rest/msdxc/dxc?ahorro=9999999&sueldo=1200000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"msdxc",
+						"dxc"
+					],
+					"query": [
+						{
+							"key": "ahorro",
+							"value": "9999999"
+						},
+						{
+							"key": "sueldo",
+							"value": "1200000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CasoSaldoDespuesDeRetirarSaldoAhorrado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Saldo después de retirar todo el saldo ahorrado debería devolver 0\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.saldo).to.eql(0);  \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Codigo de estado 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tiempo de respuesta menor a 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rest/msdxc/dxc?ahorro=600000&sueldo=1200000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"msdxc",
+						"dxc"
+					],
+					"query": [
+						{
+							"key": "ahorro",
+							"value": "600000"
+						},
+						{
+							"key": "sueldo",
+							"value": "1200000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CasoImpuesto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Diez x Ciento el impuesto debería devolver un 10% del valor calculado para retiro\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.impuesto).to.eql(responseJson.dxc * 0.1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Codigo de estado 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tiempo de respuesta menor a 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rest/msdxc/dxc?ahorro=25000000&sueldo=1200000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"msdxc",
+						"dxc"
+					],
+					"query": [
+						{
+							"key": "ahorro",
+							"value": "25000000"
+						},
+						{
+							"key": "sueldo",
+							"value": "1200000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CasoSaldoAhorradoNegativo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Diez x Ciento cuando saldo ahorrado es un valor negativo debería devolver 0\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.dxc).to.eql(0);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Codigo de estado 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tiempo de respuesta menor a 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rest/msdxc/dxc?ahorro=-1&sueldo=1200000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"msdxc",
+						"dxc"
+					],
+					"query": [
+						{
+							"key": "ahorro",
+							"value": "-1"
+						},
+						{
+							"key": "sueldo",
+							"value": "1200000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CasoSueldoNegativo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Diez x Ciento cuando sueldo es un valor negativo debería devolver 0\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.dxc).to.eql(0);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Codigo de estado 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tiempo de respuesta menor a 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rest/msdxc/dxc?ahorro=25000000&sueldo=-1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"msdxc",
+						"dxc"
+					],
+					"query": [
+						{
+							"key": "ahorro",
+							"value": "25000000"
+						},
+						{
+							"key": "sueldo",
+							"value": "-1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CasoSaldoAhorradoySueldoNegativo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Diez x Ciento cuando saldo ahorrado y sueldo son valores negativos debería devolver 0\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.dxc).to.eql(0);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Codigo de estado 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tiempo de respuesta menor a 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/rest/msdxc/dxc?ahorro=-1&sueldo=-1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"msdxc",
+						"dxc"
+					],
+					"query": [
+						{
+							"key": "ahorro",
+							"value": "-1"
+						},
+						{
+							"key": "sueldo",
+							"value": "-1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
