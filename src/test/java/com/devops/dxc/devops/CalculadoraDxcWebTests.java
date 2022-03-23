@@ -22,6 +22,6 @@ public class CalculadoraDxcWebTests {
 	@Test
 	public void rutaInicialDeberiaDevolverMensajeBienvenida() throws Exception {
 		this.mockMvc.perform(get("/rest/msdxc/")).andDo(print()).andExpect(status().isOk())
-				.andExpect(content().string(containsString("Bienvenid@ a la calculador del 10%")));
+				.andExpect(content().string(containsString("Bienvenid@ a la calculadora del 10%")));
 	}
 }
