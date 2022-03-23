@@ -24,7 +24,7 @@ public class Dxc implements Serializable {
 	}
 
 	public String getBienvenida() {
-		return "Bienvenid@ a la calculador del 10%";
+		return "Bienvenid@ a la calculadora del 10%";
 	}
 
 	public int getDxc() {
