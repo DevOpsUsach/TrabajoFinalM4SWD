@@ -4,6 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.devops.dxc.devops.model.Dxc;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +17,7 @@ public class RestData {
 
 	private final static Logger LOGGER = Logger.getLogger("devops.subnivel.Control");
 
+	@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping(path = "/dxc", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Dxc getData(@RequestParam(name = "sueldo") String sueldo,
 			@RequestParam(name = "ahorro") String ahorro) {
