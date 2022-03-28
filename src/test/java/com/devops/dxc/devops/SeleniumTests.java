@@ -1,32 +1,43 @@
 package com.devops.dxc.devops;
 
-import org.junit.Test;
-
 import com.devops.dxc.devops.Utilidades.Utils;
-
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SeleniumTests {
 
     private WebDriver driver;
-	private Actions action;
+	
 
-    @Before
+    @BeforeEach
 	public void setUp() {
 		System.out.println("Iniciando configuración...");
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
+
+		String os = System.getProperty("os.name");
+
+		if(os.contains("Windows")) {
+            System.out.println("Your Operating System is - Windows");
+			System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+        } else if (os.contains("Mac OS X")) {
+            System.out.println("Your Operating System is - macOS");
+        } else if  (os.contains("Linux")) {
+			System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
+            System.out.println("Your Operating System is - Linux"); 
+        } else {
+            System.out.println("Your Operating System is " + os);
+        }
 		driver = new ChromeDriver();
 		driver.get("http://localhost:8000");
 		driver.manage().window().maximize();
         System.out.println(driver.getCurrentUrl());
         System.out.println(driver.getTitle());
-		action = new Actions(driver);
+		
 
 	}
 
@@ -42,7 +53,7 @@ public class SeleniumTests {
         WebElement resultadoDXC = Utils.waitForElementPresence(driver, By.id("fila-resultado-dxc"), 30);
 		System.out.println(resultadoDXC.getText());
 		Thread.sleep(2000);
-		Assert.assertEquals(resultadoDXC.getText(), "4350000");
+		assertEquals(resultadoDXC.getText(), "4350000");
 	}
 
 
@@ -57,7 +68,7 @@ public class SeleniumTests {
         WebElement resultadoDXC = Utils.waitForElementPresence(driver, By.id("fila-resultado-dxc"), 30);
 		System.out.println(resultadoDXC.getText());
 		Thread.sleep(2000);
-		Assert.assertEquals(resultadoDXC.getText(), "1000000");
+		assertEquals(resultadoDXC.getText(), "1000000");
 	}
     
 }
