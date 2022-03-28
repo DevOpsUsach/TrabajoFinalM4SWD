@@ -30,7 +30,7 @@ pipeline {
         stage('Test WS con Newman') {
             steps {
                 nodejs('NodeJS4Newman') {
-                    sh 'newman run TrabajoFinalM4SWD.postman_collection.json -r junit,html --reporter-junit-export newman.xml --reporter-html-export index.html'
+                    sh 'newman run TrabajoFinalM4SWD.postman_collection.json -r junit,htmlextra --reporter-junit-export newman.xml --reporter-htmlextra-export index.html'
                     publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '.', reportFiles: 'index.html', reportName: 'Reporte Newman Dxc', reportTitles: ''])
                 }
             }
