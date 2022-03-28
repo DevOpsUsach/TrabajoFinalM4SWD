@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Test Unitarios') {
             steps {
-                sh './mvnw test -e'
+                sh './mvnw test -e -Dtest=DxcTest'
             }
         }
         stage('Ejecutar') {
