@@ -30,14 +30,15 @@ pipeline {
         stage('Test WS con Newman') {
             steps {
                 nodejs('NodeJS4Newman') {
-                    sh 'newman run TrabajoFinalM4SWD.postman_collection.json'
+                    sh 'newman run TrabajoFinalM4SWD.postman_collection.json -r junit,html --reporter-junit-export newman.xml --reporter-html-export index.html'
+                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '.', reportFiles: 'index.html', reportName: 'Reporte Newman Dxc', reportTitles: ''])
                 }
             }
         }
-        /*stage('Test with Selenium Webdriver') {
+        stage('Test with Selenium Webdriver') {
             steps {
-                sh "mvn test -e"
+                sh './mvnw test -e -Dtest=SeleniumTests'
             }
-        }*/
+        }
     }
 }
