@@ -1,6 +1,7 @@
 package com.devops.dxc.devops.model;
 
 import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 public class Dxc implements Serializable{
 
@@ -14,6 +15,7 @@ public class Dxc implements Serializable{
 	private int impuesto;
 	private int sueldo;
 	private int ahorro;
+	//private int ufHoy;
 
 	public Dxc(int ahorro, int sueldo){
 		this.ahorro = ahorro;
