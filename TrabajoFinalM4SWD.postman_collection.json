@@ -37,7 +37,7 @@
 					"raw": "http://104.248.59.191:8080/rest/msdxc/dxc?ahorro=50000000&sueldo=1200000",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"104.248.59.191"
 					],
 					"port": "8080",
 					"path": [
@@ -90,7 +90,7 @@
 					"raw": "http://104.248.59.191:8080/rest/msdxc/dxc?ahorro=9999999&sueldo=1200000",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"104.248.59.191"
 					],
 					"port": "8080",
 					"path": [
@@ -143,7 +143,7 @@
 					"raw": "http://104.248.59.191:8080/rest/msdxc/dxc?ahorro=900000&sueldo=1200000",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"104.248.59.191"
 					],
 					"port": "8080",
 					"path": [
@@ -197,7 +197,7 @@
 					"raw": "http://104.248.59.191:8080/rest/msdxc/dxc?ahorro=25000000&sueldo=1200000",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"104.248.59.191"
 					],
 					"port": "8080",
 					"path": [
@@ -250,7 +250,7 @@
 					"raw": "http://104.248.59.191:8080/rest/msdxc/dxc?ahorro=25000000&sueldo=1200000",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"104.248.59.191"
 					],
 					"port": "8080",
 					"path": [
@@ -304,7 +304,7 @@
 					"raw": "http://104.248.59.191:8080/rest/msdxc/dxc?ahorro=50000000&sueldo=1200000",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"104.248.59.191"
 					],
 					"port": "8080",
 					"path": [
@@ -358,7 +358,7 @@
 					"raw": "http://104.248.59.191:8080/rest/msdxc/dxc?ahorro=9999999&sueldo=1200000",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"104.248.59.191"
 					],
 					"port": "8080",
 					"path": [
@@ -411,7 +411,7 @@
 					"raw": "http://104.248.59.191:8080/rest/msdxc/dxc?ahorro=600000&sueldo=1200000",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"104.248.59.191"
 					],
 					"port": "8080",
 					"path": [
@@ -464,7 +464,7 @@
 					"raw": "http://104.248.59.191:8080/rest/msdxc/dxc?ahorro=25000000&sueldo=1200000",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"104.248.59.191"
 					],
 					"port": "8080",
 					"path": [
@@ -518,7 +518,7 @@
 					"raw": "http://104.248.59.191:8080/rest/msdxc/dxc?ahorro=-1&sueldo=1200000",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"104.248.59.191"
 					],
 					"port": "8080",
 					"path": [
@@ -572,7 +572,7 @@
 					"raw": "http://104.248.59.191:8080/rest/msdxc/dxc?ahorro=25000000&sueldo=-1",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"104.248.59.191"
 					],
 					"port": "8080",
 					"path": [
@@ -625,7 +625,7 @@
 					"raw": "http://104.248.59.191:8080/rest/msdxc/dxc?ahorro=-1&sueldo=-1",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"104.248.59.191"
 					],
 					"port": "8080",
 					"path": [
