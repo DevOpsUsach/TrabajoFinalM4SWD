@@ -32,7 +32,7 @@ public class SeleniumTests {
             System.out.println("Your Operating System is " + os);
         }
         driver = new ChromeDriver();
-        driver.get("http://localhost:8000");
+        driver.get("http://104.248.59.191");
         driver.manage().window().maximize();
         System.out.println(driver.getCurrentUrl());
         System.out.println(driver.getTitle());
